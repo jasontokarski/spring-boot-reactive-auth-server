@@ -1,24 +1,11 @@
 server:
-  port: 8081
-
+  port: 8080
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/userdb
-    username: useradmin
-    password: password
-    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/user_account?currentSchema=user_account_schema
+    username: app_user
+    password: your_password
   jpa:
     hibernate:
       ddl-auto: update
     show-sql: true
-
-keycloak:
-  realm: SpringBootRealm
-  auth-server-url: http://localhost:8080/realms/SpringBootRealm
-  resource: spring-boot-client
-  credentials:
-    secret: YOUR_CLIENT_SECRET
-  bearer-only: true
-  security-constraints:
-    - security-collections:
-        - authRoles: [USER]
